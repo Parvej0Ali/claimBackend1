@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 // UserController.js
 const UserService = require('../services/UserServices');
 
@@ -7,12 +8,15 @@ const getAllUsers = async (req, res) => {
     // Call the corresponding service function to get all users
     const users = await UserService.getAllUsers();
     // Send the response
+    <SpeedInsights />
     res.status(200).json(users);
   } catch (error) {
     // Handle errors
     console.error('Error getting all users:', error);
+    <SpeedInsights />
     res.status(500).json({ error: 'Internal server error' });
   }
+
 };
 
 const getUserById = async (req, res) => {

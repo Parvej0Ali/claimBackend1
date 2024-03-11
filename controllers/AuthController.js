@@ -22,7 +22,7 @@ exports.signIn = async (req, res) => {
     // Check if user exists
     let user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ msg: "Invalid credentials" });
+      return res.status(400).json({ msg: "User does not exist" });
     }
     //// console.log(user)
     ///// console.log(password + ' ' + user.password)
@@ -30,7 +30,7 @@ exports.signIn = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.status(400).json({ msg: "Invalid credentials" });
+      return res.status(400).json({ msg: "Invalid Password" });
     }
 
     // Generate JWT token

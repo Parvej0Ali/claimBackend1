@@ -15,7 +15,7 @@ const purchaseRoutes = require("./routes/PurchaseRoutes");
 
 // Middleware
 const corsOption={
-  origin:"*",
+  origin:"https://claimmanagementparvej.netlify.app",
   method:"GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials:true,
 };
